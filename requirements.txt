@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+boto3
+numpy
+Pillow
+gym
+pydantic
+pytest
+python-multipart

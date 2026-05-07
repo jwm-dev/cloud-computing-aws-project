@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hidden Agenda</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="page">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <div class="eyebrow">Research replay surface</div>
+          <div class="muted">Hidden Agenda</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="chip" href="/dashboard">Dashboard</a>
+        <a class="chip" href="/games">API</a>
+      </nav>
+    </div>
+
+    <section class="grid landing-grid">
+      <div class="card hero-card">
+        <div class="stack">
+          <div class="eyebrow">Paper synopsis</div>
+          <h1 class="title">A cooperative gridworld where one hidden impostor can stall the mission.</h1>
+          <p class="subtitle">
+            Hidden Agenda is a multi-agent environment built around a sparse coordination loop: collect fuel, reach the deposit, and vote when sabotage is suspected.
+            Observations are intentionally local and role-blind, so the interesting behavior comes from inference, timing, and social pressure rather than privileged state access.
+          </p>
+          <div class="nav">
+            <a class="button primary" href="/dashboard">Open the dashboard</a>
+            <a class="button" href="/dashboard">Jump to runs</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card card-inner">
+        <h2 class="section-title">What the app does</h2>
+        <p class="section-copy">
+          This site is the operational surface for the simulation. You can launch batches of games, inspect the run list, and open a replay viewer that scrubs through each stored game step by step.
+        </p>
+        <div class="callout" style="margin-top: 18px;">
+          <strong>Three pages, three jobs</strong>
+          <ul>
+            <li>Landing page for the synopsis and the workflow.</li>
+            <li>Dashboard for one-off or batched dispatches.</li>
+            <li>Viewer for replaying a specific run with a timeline.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid landing-grid" style="margin-top: 18px;">
+      <div class="card card-inner">
+        <h2 class="section-title">Mechanics in brief</h2>
+        <div class="split">
+          <div>
+            <p class="section-copy"><strong>Situation phase:</strong> agents move, interact with fuel or the deposit, and the impostor can freeze crewmates in a short forward beam.</p>
+            <p class="section-copy"><strong>Voting phase:</strong> everyone is moved to the voting room and votes are recorded with a one-step delay in visibility.</p>
+          </div>
+          <div>
+            <p class="section-copy"><strong>Observations:</strong> every player gets the same shape of local RGB view, inventory ratio, global progress, and vote matrix.</p>
+            <p class="section-copy"><strong>Replay:</strong> every run is logged as deterministic step data, which lets the backend reconstruct frames for the viewer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-inner">
+        <h2 class="section-title">Use cases</h2>
+        <div class="metric-row">
+          <div class="metric">
+            <div class="label">Dispatch</div>
+            <div class="value">Single or batch</div>
+          </div>
+          <div class="metric">
+            <div class="label">Inspect</div>
+            <div class="value">Run metadata</div>
+          </div>
+          <div class="metric">
+            <div class="label">Replay</div>
+            <div class="value">Timeline scrubbing</div>
+          </div>
+        </div>
+        <p class="footer-note">
+          Start on the dashboard if you want to launch new games. When a run is available, click it to open the replay viewer and inspect the simulation frame by frame.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

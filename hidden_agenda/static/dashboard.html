@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hidden Agenda Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="page">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <div class="eyebrow">Simulation control</div>
+          <div class="muted">Dashboard</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="chip" href="/">Landing</a>
+        <a class="chip" href="/games">API</a>
+      </nav>
+    </div>
+
+    <section class="card hero-card" style="margin-bottom: 18px;">
+      <div class="toolbar">
+        <div>
+          <div class="eyebrow">Dispatch games</div>
+          <h1 class="title" style="font-size: clamp(1.8rem, 3vw, 3rem); margin-top: 6px;">Launch a single run or a whole batch.</h1>
+        </div>
+        <div id="runStatus" class="status">Idle</div>
+      </div>
+      <p class="subtitle" style="margin-bottom: 0;">
+        Use the form below to send one or more simulations to the background runner. The run list refreshes automatically and each row links to the replay viewer.
+      </p>
+    </section>
+
+    <section class="grid dashboard-grid">
+      <div class="card card-inner">
+        <div class="toolbar">
+          <h2 class="section-title" style="margin: 0;">Run configuration</h2>
+          <button id="refreshRuns" class="button" type="button">Refresh runs</button>
+        </div>
+
+        <div class="form-grid" style="margin-top: 16px;">
+          <div class="field">
+            <label for="seed">Seed</label>
+            <input id="seed" type="number" value="42" step="1">
+          </div>
+          <div class="field">
+            <label for="numGames">Games</label>
+            <input id="numGames" type="number" value="1" min="1" step="1">
+          </div>
+          <div class="field" style="grid-column: span 2;">
+            <label for="config">Config JSON</label>
+            <textarea id="config">{ "seed": 42 }</textarea>
+          </div>
+        </div>
+
+        <div class="toolbar" style="margin-top: 16px;">
+          <div class="control-row">
+            <button id="runSingle" class="button primary" type="button">Run once</button>
+            <button id="runBatch" class="button" type="button">Run batch</button>
+          </div>
+          <div class="muted">Singular dispatch uses 1 game; batch dispatch respects the games input.</div>
+        </div>
+      </div>
+
+      <div class="card card-inner">
+        <div class="toolbar">
+          <h2 class="section-title" style="margin: 0;">Recent runs</h2>
+          <span id="runCount" class="pill">0 runs</span>
+        </div>
+        <div class="table-wrap" style="margin-top: 16px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Run</th>
+                <th>Seed</th>
+                <th>Steps</th>
+                <th>Created</th>
+                <th>Open</th>
+              </tr>
+            </thead>
+            <tbody id="runRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
